@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/gps-art/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/gps-art/static/js/main.25308efb.chunk.js",
+    "main.js.map": "/gps-art/static/js/main.25308efb.chunk.js.map",
+    "runtime-main.js": "/gps-art/static/js/runtime-main.7500f1a4.js",
+    "runtime-main.js.map": "/gps-art/static/js/runtime-main.7500f1a4.js.map",
+    "static/js/2.58d9b7cd.chunk.js": "/gps-art/static/js/2.58d9b7cd.chunk.js",
+    "static/js/2.58d9b7cd.chunk.js.map": "/gps-art/static/js/2.58d9b7cd.chunk.js.map",
+    "index.html": "/gps-art/index.html",
+    "precache-manifest.e59c62ea5b250a2f86266c0697340fd2.js": "/gps-art/precache-manifest.e59c62ea5b250a2f86266c0697340fd2.js",
+    "service-worker.js": "/gps-art/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/gps-art/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.58d9b7cd.chunk.js.LICENSE.txt": "/gps-art/static/js/2.58d9b7cd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7500f1a4.js",
+    "static/js/2.58d9b7cd.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.25308efb.chunk.js"
+  ]
+}
