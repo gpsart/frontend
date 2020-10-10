@@ -6,7 +6,7 @@ class ActivityRoutesDataService {
   }
 
   get(id) {
-    return http.get(`/v1/routes/${id}`);
+    return http.get(`/v2/routes/${id}`);
   }
 }
 
