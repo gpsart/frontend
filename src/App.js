@@ -9,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import CameraIcon from '@material-ui/icons/Camera';
+import logo from './logogps.png';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -46,6 +47,10 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  logo: {
+    maxWidth: "80px",
+    marginRight: "35px"
+  },
 }));
 
 function App() {
@@ -57,7 +62,7 @@ function App() {
         <CssBaseline />
         <AppBar position="relative">
           <Toolbar>
-            <CameraIcon className={classes.icon} />
+            <img src={logo} alt="logo" className={classes.logo} />
             <Typography variant="h6" color="inherit" noWrap>
               Album layout
             </Typography>
