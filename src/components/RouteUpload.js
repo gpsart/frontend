@@ -61,7 +61,6 @@ const RouteUpload = () => {
         setOpen(false);
 
         return response.data.message;
-        //return UploadService.getFiles();
       })
       .then((files) => {
         setFileInfos(files.data);
@@ -100,10 +99,10 @@ const RouteUpload = () => {
           <input
             onChange={selectFile}
             className={classes.input}
-            id="contained-button-file"
-            type="fiRouteUploadle"
+            id="route-upload"
+            type="file"
           />
-          <label htmlFor="contained-button-file">
+          <label htmlFor="route-upload">
             <Button variant="contained" color="primary" component="span" fullWidth>
               Choose File
             </Button>
