@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
+import choose_from_list from "../choose-route.jpg";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -29,8 +30,14 @@ const HowItWorks = () => {
 
   return (
     <Container className={classes.cardGrid} maxWidth="md">
-      <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-        It Works
+      <Typography component="h4" variant="h4" align="left" color="textPrimary" gutterBottom>
+        To run route - choose from the list and press Download Route
+      </Typography>
+      <Typography component="h4" variant="h4" align="left" color="textPrimary" gutterBottom>
+        Upload it to strava or mapmyrun
+      </Typography>
+      <Typography component="h4" variant="h4" align="left" color="textPrimary" gutterBottom>
+        To add new route go to list page and upload new route in .gpx format
       </Typography>
     </Container>
   );
