@@ -9,8 +9,8 @@ import CardActions from "@material-ui/core/CardActions";
 import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
-import FileUpload from "./FileUpload";
 import { DataGrid } from '@material-ui/data-grid';
+import ActivityUpload from "./ActivityUpload";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -83,7 +83,7 @@ const ActivityRoute = () => {
           )}
         </CardContent>
         <CardActions>
-          {/*<FileUpload/>*/}
+          <ActivityUpload id={id}/>
         </CardActions>
       </Card>
     </Container>

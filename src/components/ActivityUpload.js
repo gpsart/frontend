@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import UploadService from "../services/FileUploadService";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -9,6 +9,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import {useParams} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UploadFiles = () => {
+const ActivityUpload = () => {
+  const {id} = useParams();
   const [selectedFiles, setSelectedFiles] = useState(undefined);
   const [fileName, setFileName] = useState(undefined);
   const [currentFile, setCurrentFile] = useState(undefined);
@@ -53,7 +55,7 @@ const UploadFiles = () => {
 
     setProgress(0);
     setCurrentFile(currentFile);
-    UploadService.upload(currentFile, fileName, (event) => {
+    UploadService.uploadActivity(id, currentFile, fileName, (event) => {
       setProgress(Math.round((100 * event.loaded) / event.total));
     })
       .then((response) => {
@@ -80,7 +82,7 @@ const UploadFiles = () => {
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Propose new route
+        Upload your activity
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Propose new route</DialogTitle>
@@ -129,4 +131,4 @@ const UploadFiles = () => {
     </div>
   );
 }
-export default UploadFiles;
+export default ActivityUpload;

@@ -9,11 +9,11 @@ import CardActions from "@material-ui/core/CardActions";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
-import FileUpload from "./FileUpload";
+import RouteUpload from "./RouteUpload";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
+    //backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
@@ -69,7 +69,7 @@ const ActivityRoutesGrid = () => {
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justify="center">
               <Grid item>
-                <FileUpload/>
+                <RouteUpload/>
               </Grid>
             </Grid>
           </div>
