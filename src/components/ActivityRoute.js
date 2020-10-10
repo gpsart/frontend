@@ -39,11 +39,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const columns = [
-  {field: 'name', headerName: 'Name', width: 200},
-  {field: 'result', headerName: 'Result', width: 200},
-];
-
 const ActivityRoute = () => {
   let {id} = useParams();
   const classes = useStyles();

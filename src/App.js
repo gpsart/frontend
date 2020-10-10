@@ -1,15 +1,16 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 import ActivityRoutesGrid from './components/ActivityRoutesGrid'
 import ActivityRoute from './components/ActivityRoute'
+import HowItWorks from './components/HowItWorks'
 import {makeStyles} from "@material-ui/core/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import CameraIcon from '@material-ui/icons/Camera';
 import logo from './logogps.png';
+import IconButton from '@material-ui/core/IconButton';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -66,11 +67,17 @@ function App() {
             <Typography variant="h6" color="inherit" noWrap>
               Gps art project
             </Typography>
+            <Link className={classes.link} to={`/how-it-works`} >
+              <IconButton color="secondary" aria-label="how-it-works">
+                <HelpOutlineIcon />
+              </IconButton>
+            </Link>
           </Toolbar>
         </AppBar>
         <main>
           <Switch>
             <Route path="/" component={ActivityRoutesGrid} exact/>
+            <Route path="/how-it-works" component={HowItWorks} exact/>
             <Route path="/activity-routes/:id" component={ActivityRoute}/>
             <Route path="/api/v2/routes/:id/content" onEnter={() => window.location.reload()} />
           </Switch>
