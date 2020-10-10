@@ -72,6 +72,7 @@ function App() {
           <Switch>
             <Route path="/" component={ActivityRoutesGrid} exact/>
             <Route path="/activity-routes/:id" component={ActivityRoute}/>
+            <Route path="/api/v2/routes/:id/content" onEnter={() => window.location.reload()} />
           </Switch>
         </main>
       </React.Fragment>

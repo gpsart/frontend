@@ -17,6 +17,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import ImageIcon from '@material-ui/icons/Image';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -95,7 +96,7 @@ const ActivityRoute = () => {
         </CardContent>
         <CardActions>
           <ActivityUpload id={id}/>
-          <Link className={classes.link} to={`/api/v2/routes/${activityRoute.id}/content`} >
+          <Link className={classes.link} target="_blank" to={`/api/v2/routes/${activityRoute.id}/content`} >
             <Button
               variant="contained"
               color="primary"
