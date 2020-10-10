@@ -64,7 +64,7 @@ function App() {
           <Toolbar>
             <img src={logo} alt="logo" className={classes.logo} />
             <Typography variant="h6" color="inherit" noWrap>
-              Album layout
+              Gps art project
             </Typography>
           </Toolbar>
         </AppBar>
