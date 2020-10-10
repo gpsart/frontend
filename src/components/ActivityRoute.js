@@ -95,7 +95,7 @@ const ActivityRoute = () => {
         </CardContent>
         <CardActions>
           <ActivityUpload id={id}/>
-          <Link className={classes.link} to={`/api/v1/routes/${activityRoute.id}/content`} >
+          <Link className={classes.link} to={`/api/v2/routes/${activityRoute.id}/content`} >
             <Button
               variant="contained"
               color="primary"
