@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import CameraIcon from '@material-ui/icons/Camera';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -54,51 +54,16 @@ function App() {
   return (
     <div>
       <React.Fragment>
-        <CssBaseline/>
-        <AppBar position="static">
-          <Toolbar variant="dense">
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit">
-              Share your art
+        <CssBaseline />
+        <AppBar position="relative">
+          <Toolbar>
+            <CameraIcon className={classes.icon} />
+            <Typography variant="h6" color="inherit" noWrap>
+              Album layout
             </Typography>
           </Toolbar>
         </AppBar>
-        {/*<AppBar position="relative">*/}
-        {/*  <Toolbar>*/}
-        {/*    <CameraIcon className={classes.icon}/>*/}
-        {/*    <Typography variant="h6" color="inherit" noWrap>*/}
-        {/*      Album layout*/}
-        {/*    </Typography>*/}
-        {/*  </Toolbar>*/}
-        {/*</AppBar>*/}
         <main>
-          {/* Hero unit */}
-          {/*<div className={classes.heroContent}>*/}
-          {/*  <Container maxWidth="sm">*/}
-          {/*    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>*/}
-          {/*      Share your art*/}
-          {/*    </Typography>*/}
-          {/*    <Typography variant="h5" align="center" color="textSecondary" paragraph>*/}
-          {/*      by SteelCannons*/}
-          {/*    </Typography>*/}
-          {/*    <div className={classes.heroButtons}>*/}
-          {/*      <Grid container spacing={2} justify="center">*/}
-          {/*        <Grid item>*/}
-          {/*          <Button variant="contained" color="primary">*/}
-          {/*            Main call to action*/}
-          {/*          </Button>*/}
-          {/*        </Grid>*/}
-          {/*        <Grid item>*/}
-          {/*          <Button variant="outlined" color="primary">*/}
-          {/*            Secondary action*/}
-          {/*          </Button>*/}
-          {/*        </Grid>*/}
-          {/*      </Grid>*/}
-          {/*    </div>*/}
-          {/*  </Container>*/}
-          {/*</div>*/}
           <Switch>
             <Route path="/" component={ActivityRoutesGrid} exact/>
             <Route path="/activity-routes/:id" component={ActivityRoute}/>
