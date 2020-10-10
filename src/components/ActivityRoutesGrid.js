@@ -9,6 +9,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Container from "@material-ui/core/Container";
 import {makeStyles} from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
+import FileUpload from "./FileUpload";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -48,7 +49,7 @@ const ActivityRoutesGrid = () => {
 
   return (
     <Container className={classes.cardGrid} maxWidth="md">
-      {/* End hero unit */}
+      <FileUpload/>
       <Grid container spacing={4}>
         {activityRoutes.map((activityRoute) => (
           <Grid item key={activityRoute.id} xs={12} sm={6} md={4}>

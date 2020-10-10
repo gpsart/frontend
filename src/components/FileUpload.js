@@ -4,13 +4,20 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import {makeStyles} from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '25ch',
     },
+  },
+  input: {
+    display: 'none',
   },
 }));
 
@@ -23,6 +30,16 @@ const UploadFiles = () => {
 
   const [fileInfos, setFileInfos] = useState([]);
 
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const selectFile = (event) => {
     setSelectedFiles(event.target.files);
   };
@@ -32,8 +49,7 @@ const UploadFiles = () => {
   };
 
   const upload = (event) => {
-    console.log(event.target);
-    let currentFile = event.target.files[0];
+    let currentFile = selectedFiles[0];
 
     setProgress(0);
     setCurrentFile(currentFile);
@@ -42,6 +58,8 @@ const UploadFiles = () => {
     })
       .then((response) => {
         setMessage(response.data.message);
+        setOpen(false);
+
         return response.data.message;
         //return UploadService.getFiles();
       })
@@ -61,36 +79,53 @@ const UploadFiles = () => {
 
   return (
     <div>
-      {currentFile && (
-        <CircularProgress variant="static" value={progress}/>
-      )}
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="route-name" label="Standard" onChange={fileNameChange}/>
-        <Button
-          variant="contained"
-          component="label"
-          //disabled={!selectedFiles}
-          //onChange={selectFile}
-        >
-          Upload File
-          <input
-            type="file"
-            style={{display: "none"}}
-            onChange={upload}
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Propose new route
+      </Button>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Propose new route</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Text here
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Name your run"
+            type="text"
+            onChange={fileNameChange}
+            fullWidth
           />
-        </Button>
-      </form>
-      {/*<input type="file" onChange={selectFile}/>*/}
-
-      {/*<Button*/}
-      {/*  variant="contained"*/}
-      {/*  disabled={!selectedFiles}*/}
-      {/*  onClick={upload}*/}
-      {/*>*/}
-      {/*  Upload*/}
-      {/*</Button>*/}
-
-      {/*<Alert severity="info">{message}</Alert>*/}
+          <input
+            onChange={selectFile}
+            className={classes.input}
+            id="contained-button-file"
+            type="file"
+          />
+          <label htmlFor="contained-button-file">
+            <Button variant="contained" color="primary" component="span" fullWidth>
+              Choose File
+            </Button>
+          </label>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button
+            color="primary"
+            component="label"
+            disabled={!selectedFiles || !fileName}
+            onClick={upload}
+          >
+            Upload
+          </Button>
+          {currentFile && (
+            <CircularProgress variant="static" value={progress}/>
+          )}
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

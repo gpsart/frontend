@@ -5,7 +5,7 @@ const upload = (file, name, onUploadProgress) => {
 
   formData.append("gpx_file[file]", file);
   formData.append("gpx_file[name]", name);
-  return http.post("/routes", formData, {
+  return http.post("/v1/routes", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

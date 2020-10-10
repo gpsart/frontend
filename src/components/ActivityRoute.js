@@ -81,27 +81,9 @@ const ActivityRoute = () => {
              <DataGrid rows={activityRoute.leaderboard} columns={columns} />
             </div>
           )}
-
-
-          {/*<List component="nav" aria-label="main mailbox folders">*/}
-
-
-
-            {/*{activityRoute && activityRoute.leaderboard && activityRoute.leaderboard.map(item => (*/}
-            {/*  <ListItem button>*/}
-            {/*    <ListItemText primary={item.name}/>*/}
-            {/*    <ListItemText primary={item.result}/>*/}
-            {/*  </ListItem>*/}
-            {/*))}*/}
-
-
-            {/*{activityRoute && activityRoute.leaderboard.map((item) => (*/}
-
-            {/*))}*/}
-          {/*</List>*/}
         </CardContent>
         <CardActions>
-          <FileUpload/>
+          {/*<FileUpload/>*/}
         </CardActions>
       </Card>
     </Container>

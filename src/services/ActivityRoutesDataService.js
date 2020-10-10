@@ -2,11 +2,11 @@ import http from "../http-common";
 
 class ActivityRoutesDataService {
   getAll() {
-    return http.get("/routes");
+    return http.get("/v2/routes");
   }
 
   get(id) {
-    return http.get(`/routes/${id}`);
+    return http.get(`/v2/routes/${id}`);
   }
 }
 
