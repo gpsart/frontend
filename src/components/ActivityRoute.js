@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ActivityRoutesDataService from "../services/ActivityRoutesDataService";
 import {makeStyles} from "@material-ui/core/styles";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -9,8 +9,15 @@ import CardActions from "@material-ui/core/CardActions";
 import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
-import { DataGrid } from '@material-ui/data-grid';
+import {DataGrid} from '@material-ui/data-grid';
 import ActivityUpload from "./ActivityUpload";
+import Grid from "@material-ui/core/Grid";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -34,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const columns = [
-  { field: 'name', headerName: 'Name', width: 200 },
-  { field: 'result', headerName: 'Result', width: 200 },
+  {field: 'name', headerName: 'Name', width: 200},
+  {field: 'result', headerName: 'Result', width: 200},
 ];
 
 const ActivityRoute = () => {
@@ -71,16 +78,21 @@ const ActivityRoute = () => {
           {/*<Typography>*/}
           {/*  Rate: {activityRoute.rate}*/}
           {/*</Typography>*/}
-          <Divider />
-          <Typography variant="h5" component="h2">
-            Leaderboards:
-          </Typography>
-
-          {activityRoute && activityRoute.leaderboard && (
-            <div style={{ height: 400, width: '100%' }}>
-             <DataGrid rows={activityRoute.leaderboard} columns={columns} />
-            </div>
-          )}
+          {/*<Typography variant="h5" component="h2">*/}
+          {/*  Leaderboards:*/}
+          {/*</Typography>*/}
+          <List>
+            {activityRoute && activityRoute.leaderboard && activityRoute.leaderboard.map((leaderboard) => (
+              <ListItem button>
+                <ListItemIcon>
+                  <Avatar>
+                    <ImageIcon/>
+                  </Avatar>
+                </ListItemIcon>
+                <ListItemText primary={leaderboard.name} secondary={leaderboard.result}/>
+              </ListItem>
+            ))}
+          </List>
         </CardContent>
         <CardActions>
           <ActivityUpload id={id}/>
