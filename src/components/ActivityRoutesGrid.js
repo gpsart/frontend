@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import ActivityRoutesDataService from "../services/activity-routes.data.service";
+import ActivityRoutesDataService from "../services/ActivityRoutesDataService";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";

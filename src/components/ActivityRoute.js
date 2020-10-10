@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ActivityRoutesDataService from "../services/activity-routes.data.service";
+import ActivityRoutesDataService from "../services/ActivityRoutesDataService";
 import {makeStyles} from "@material-ui/core/styles";
 import {useParams} from "react-router-dom";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -8,6 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
+import Divider from "@material-ui/core/Divider";
+import FileUpload from "./FileUpload";
+import { DataGrid } from '@material-ui/data-grid';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -29,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
   },
 }));
+
+const columns = [
+  { field: 'name', headerName: 'Name', width: 200 },
+  { field: 'result', headerName: 'Result', width: 200 },
+];
 
 const ActivityRoute = () => {
   let {id} = useParams();
@@ -58,19 +66,42 @@ const ActivityRoute = () => {
             {activityRoute.name}
           </Typography>
           <Typography>
-            Distance:  {activityRoute.distance}
+            Distance: {activityRoute.distance}
           </Typography>
-          <Typography>
-            Rate:  {activityRoute.rate}
+          {/*<Typography>*/}
+          {/*  Rate: {activityRoute.rate}*/}
+          {/*</Typography>*/}
+          <Divider />
+          <Typography variant="h5" component="h2">
+            Leaderboards:
           </Typography>
+
+          {activityRoute && activityRoute.leaderboard && (
+            <div style={{ height: 400, width: '100%' }}>
+             <DataGrid rows={activityRoute.leaderboard} columns={columns} />
+            </div>
+          )}
+
+
+          {/*<List component="nav" aria-label="main mailbox folders">*/}
+
+
+
+            {/*{activityRoute && activityRoute.leaderboard && activityRoute.leaderboard.map(item => (*/}
+            {/*  <ListItem button>*/}
+            {/*    <ListItemText primary={item.name}/>*/}
+            {/*    <ListItemText primary={item.result}/>*/}
+            {/*  </ListItem>*/}
+            {/*))}*/}
+
+
+            {/*{activityRoute && activityRoute.leaderboard.map((item) => (*/}
+
+            {/*))}*/}
+          {/*</List>*/}
         </CardContent>
         <CardActions>
-          {/*<Button size="small" color="primary">*/}
-          {/*  View*/}
-          {/*</Button>*/}
-          {/*<Button size="small" color="primary">*/}
-          {/*  Edit*/}
-          {/*</Button>*/}
+          <FileUpload/>
         </CardActions>
       </Card>
     </Container>
