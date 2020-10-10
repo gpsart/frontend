@@ -17,7 +17,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import ImageIcon from '@material-ui/icons/Image';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -75,12 +74,6 @@ const ActivityRoute = () => {
           <Typography>
             Distance: {activityRoute.distance}
           </Typography>
-          {/*<Typography>*/}
-          {/*  Rate: {activityRoute.rate}*/}
-          {/*</Typography>*/}
-          {/*<Typography variant="h5" component="h2">*/}
-          {/*  Leaderboards:*/}
-          {/*</Typography>*/}
           <List>
             {activityRoute && activityRoute.leaderboard && activityRoute.leaderboard.map((leaderboard) => (
               <ListItem button>

@@ -96,12 +96,6 @@ const ActivityRoutesGrid = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    {/*<Button size="small" color="primary">*/}
-                    {/*  View*/}
-                    {/*</Button>*/}
-                    {/*<Button size="small" color="primary">*/}
-                    {/*  Edit*/}
-                    {/*</Button>*/}
                   </CardActions>
                 </Card>
               </Link>
